@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Pokemon</title>
+  </head>
+  <body>
+    <h1>All Pokemon</h1>    
+    <%= form_tag "/", method: :get do %>
+      <%= submit_tag "Back to Main Menu"%>
+    <% end %>
+
+    <% @pokemons.each.with_index(1) do |pokemon, index| %>
+      <p><%= index %>. <%= link_to pokemon.name.capitalize, pokemon_path(pokemon) %></p>
+    <% end %>
+
+  </body>
+</html>

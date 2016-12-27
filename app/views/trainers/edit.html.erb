@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Trainer</title>
+  </head>
+  <body>
+    <h1>Edit A Trainer</h1>
+    <%= form_for @trainer do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <br></br>
+
+      <%= f.label :age %>
+      <%= f.text_field :age %>
+      <br></br>
+
+      <%= f.submit "Save Changes"%>
+    <% end %>
+
+    <br>
+    <%= form_tag trainer_path, method: :get do %>
+      <%= submit_tag "Back to Trainer #{@trainer.name}'s Profile"%>
+    <% end %>
+  </body>
+</html>

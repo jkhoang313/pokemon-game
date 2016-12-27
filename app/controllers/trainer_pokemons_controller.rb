@@ -1,0 +1,2 @@
+class TrainerPokemonsController < ApplicationController
+end

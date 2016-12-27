@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Trainer</title>
+  </head>
+  <body>
+    <h1>Trainer <%= @trainer.name %></h1>
+    <p>Gender: <%= @trainer.gender %></p>
+    <p>Age: <%= @trainer.age %></p>
+
+    <label for="pokemon">Pokemon:</label>
+    <ul>
+      <% @trainer.pokemons.each do |pokemon| %>
+        <li><%= link_to pokemon.name.capitalize, pokemon_path(pokemon)%></li>
+      <% end %>
+    </ul>
+
+    <br>
+    <%= form_tag edit_trainer_path, method: :get do %>
+      <%= submit_tag "Edit Trainer"%>
+    <% end %>
+
+    <br>
+    <%= form_tag "/trainers/#{@trainer.id}", method: :delete do %>
+      <%= submit_tag "Delete Trainer"%>
+    <% end %>
+
+    <br>
+    <%= form_tag trainers_path, method: :get do %>
+      <%= submit_tag "Back to All Trainers"%>
+    <% end %>
+  </body>
+</html>
