@@ -4,6 +4,7 @@ class TrainersController < ApplicationController
   end
 
   def new
+    @random_starter = Pokemon.find(rand(1..143)).name
   end
 
   def create
@@ -31,7 +32,7 @@ class TrainersController < ApplicationController
   def update
     @trainer = Trainer.find(params[:id])
     @trainer.update(name: params[:trainer][:name], age: params[:trainer][:age], starter_pokemon: params[:trainer][:starter_pokemon])
-    #edit pokemon roster
+
     redirect_to trainer_path(@trainer)
   end
 

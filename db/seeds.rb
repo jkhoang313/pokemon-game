@@ -12,7 +12,7 @@ id = 1
 while id <= 151
   @pokemon = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/#{id}/"))
   Pokemon.create(name: @pokemon["name"])
-  puts "Halfway there..." if id == 75
+  puts "So many Pokemon to load..." if id == 75
   id += 1
 end
 
