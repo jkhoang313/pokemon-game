@@ -4,7 +4,6 @@ class TrainersController < ApplicationController
   end
 
   def new
-    @random_starter = Pokemon.find(rand(1..143)).name
   end
 
   def create

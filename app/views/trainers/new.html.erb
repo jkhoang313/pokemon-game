@@ -19,7 +19,7 @@
       <%= f.radio_button :starter_pokemon, "bulbasaur" %><%= f.label :bulbasaur %>
       <%= f.radio_button :starter_pokemon, "charmander" %><%= f.label :charmander %>
       <%= f.radio_button :starter_pokemon, "squirtle" %><%= f.label :squirtle %>
-      <%= f.radio_button :starter_pokemon, @random_starter %><%= f.label :random %>
+      <%= f.radio_button :starter_pokemon, Trainer.random_starter %><%= f.label :random %>
       <br></br>
 
       <%= f.radio_button :gender, "Male" %><%= f.label :male %>
