@@ -19,8 +19,6 @@
     <% end %>
 
     <br>
-    <%= form_tag trainer_path, method: :get do %>
-      <%= submit_tag "Back to Trainer #{@trainer.name}'s Profile"%>
-    <% end %>
+    <%= button_to "Back to All Trainers", trainers_path, method: :get %>
   </body>
 </html>

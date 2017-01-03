@@ -22,13 +22,17 @@
     <% end %>
 
     <br>
-    <%= form_tag "/trainers/#{@trainer.id}", method: :delete do %>
+    <!-- <%= form_tag "/trainers/#{@trainer.id}", method: :delete do %>
       <%= submit_tag "Delete Trainer"%>
-    <% end %>
+    <% end %> -->
+
+    <%= button_to "Delete Trainer", @trainer, method: :delete %>
 
     <br>
-    <%= form_tag trainers_path, method: :get do %>
+    <!-- <%= form_tag trainers_path, method: :get do %>
       <%= submit_tag "Back to All Trainers"%>
-    <% end %>
+    <% end %> -->
+
+    <%= button_to "Back to All Trainers", trainers_path, method: :get %>
   </body>
 </html>

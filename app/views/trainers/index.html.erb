@@ -12,13 +12,13 @@
     <% end %>
 
     <br>
-    <%= form_tag "/trainers/new", method: :get do %>
+    <!-- <%= form_tag "/trainers/new", method: :get do %>
       <%= submit_tag "New Trainer"%>
-    <% end %>
+    <% end %> -->
+    <%= button_to "New Trainer", new_trainer_path, method: :get %>
+
 
     <br>
-    <%= form_tag "/", method: :get do %>
-      <%= submit_tag "Back to Main Menu"%>
-    <% end %>
+    <%= button_to "Back to All Trainers", trainers_path, method: :get %>
   </body>
 </html>

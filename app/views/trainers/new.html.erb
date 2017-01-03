@@ -31,8 +31,9 @@
     <% end %>
 
     <br>
-    <%= form_tag "/", method: :get do %>
+    <!-- <%= form_tag "/", method: :get do %>
       <%= submit_tag "Back to Main Menu"%>
-    <% end %>
+    <% end %> -->
+    <%= button_to "Back to Main Menu", "/", method: :get %>
   </body>
 </html>
