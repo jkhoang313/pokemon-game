@@ -5,13 +5,14 @@
     <title>All Pokemon</title>
   </head>
   <body>
-    <h1>All Pokemon</h1>    
+    <h1>All Pokemon</h1>
     <%= form_tag "/", method: :get do %>
       <%= submit_tag "Back to Main Menu"%>
     <% end %>
 
     <% @pokemons.each.with_index(1) do |pokemon, index| %>
-      <p><%= index %>. <%= link_to pokemon.name.capitalize, pokemon_path(pokemon) %></p>
+      <% @count = Trainer.joins(:pokemons).where(pokemons: {name: "#{pokemon.name}"}).count %>
+      <p><%= "#{index}. #{pokemon.name.capitalize}: "%> <%= link_to "#{@count} trainer(s)", pokemon_path(pokemon) %></p>
     <% end %>
 
   </body>

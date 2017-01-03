@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>Create A Trainer</h1>
-    <%= form_for Trainer.new do |f| %>
+    <%= form_for @trainer do |f| %>
       <%= f.label :name %>
       <%= f.text_field :name %>
       <br></br>
@@ -27,7 +27,7 @@
       <br><br>
 
 
-      <%= f.submit "Create Trainer" %>
+      <%= f.submit %>
     <% end %>
 
     <br>

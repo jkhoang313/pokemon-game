@@ -4,6 +4,7 @@ class TrainersController < ApplicationController
   end
 
   def new
+    @trainer = Trainer.new
   end
 
   def create
