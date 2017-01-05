@@ -10,11 +10,11 @@ class Trainer < ApplicationRecord
 
     random_number = rand(1..100)
 
-    if random_number < 50
+    if random_number < 40
       common.sample
-    elsif random_number < 85
+    elsif random_number < 70
       rare.sample
-    elsif random_number < 95
+    elsif random_number < 90
       super_rare.sample
     else
       ultra_rare.sample

@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   resources :trainers
   resources :pokemons
 
-  get '/', to: 'games#index'
-  get '/about', to: 'games#about'
+  get '/', to: 'game#index'
+  get '/about', to: 'game#about'
 end

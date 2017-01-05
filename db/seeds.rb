@@ -20,3 +20,8 @@ end
 puts "Creating Trainer Jackson..."
 @jackson = Trainer.create(name: "Jackson", age: 24, starter_pokemon: "charmander", gender: "Male")
 @jackson.pokemons << Pokemon.find_by(name: "charmander")
+
+# loads Lily's profile
+puts "Creating Trainer Lily..."
+@lily = Trainer.create(name: "Lily", age: 24, starter_pokemon: "squirtle", gender: "female")
+@lily.pokemons << Pokemon.find_by(name: "squirtle")
