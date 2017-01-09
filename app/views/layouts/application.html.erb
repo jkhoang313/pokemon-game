@@ -9,17 +9,16 @@
   </head>
 
   <body>
-    <div class="navbar">
+    <div class="nav-bar">
       <%= button_to "Home", root_path, method: :get %>
       <%= button_to "About", about_path, method: :get %>
       <%= button_to "Trainers", trainers_path, method: :get %>
       <%= button_to "Pokedex", pokedex_index_path, method: :get %>
-      <% if current_trainer %>
-      <p>Signed in as: <%= current_trainer.name %></p>
-      <% end %>
       <% if session[:trainer_id] %>
+        <p>Signed in as Trainer <%= current_trainer.name %></p>
         <%= button_to "Logout", logout_path, method: :delete %>
       <% else  %>
+        <p>Not signed in</p>
         <%= button_to "Sign Up", new_trainer_path, method: :get %>
         <%= button_to "Login", login_path, method: :get %>
       <% end  %>

@@ -2,6 +2,7 @@ class Trainer < ApplicationRecord
   has_secure_password
   has_many :pokemons
   before_save :capitalize_name
+  #add uniqueness to trainer name
 
   def capitalize_name
     self.name = self.name.downcase.split.collect(&:capitalize).join(' ') if self.name && !self.name.blank?
@@ -50,4 +51,14 @@ class Trainer < ApplicationRecord
     @new_token = self.poke_tokens + 1
     self.update(poke_tokens: @new_token, last_token: Time.now.to_i)
   end
+
+  def starters
+    self.pokemons[0..5]
+  end
+
+  def storage
+    self.pokemons[6..-1]
+  end
+
+  #make method for moving starters and storage pokemon
 end

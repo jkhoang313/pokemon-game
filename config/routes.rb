@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :pokedex
   # resources :pokemons
 
-  root to: 'game#index'
+  root 'game#index'
   get '/about', to: 'game#about', as: "about"
 
   post '/trainers/:id', to: 'trainers#reset_token', as: "reset_token"

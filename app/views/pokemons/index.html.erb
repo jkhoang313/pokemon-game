@@ -5,8 +5,23 @@
     <title>Pokemons Page</title>
   </head>
   <body>
-    <% @pokemons.each do |pokemon| %>
-      <h1><%= pokemon.name %></h1>
+    <h1>Current Team</h1>
+    <ul>
+      <% @trainer.starters.each.with_index(1) do |pokemon, index| %>
+      <li><%= link_to pokemon.name.capitalize, pokemon_path(@trainer, index)%></h1></li>
+      <% end %>
+    </ul>
+
+    <h1>In Storage</h1>
+    <% if @trainer.storage == nil %>
+      <p><% "No Pokemon in storage" %></p>
+    <% else %>
+    <ul>
+      <% @trainer.storage.each.with_index(7) do |pokemon, index| %>
+
+      <li><%= link_to pokemon.name.capitalize, pokemon_path(@trainer, index)%></li>
+      <% end %>
     <% end %>
+    </ul>
   </body>
 </html>

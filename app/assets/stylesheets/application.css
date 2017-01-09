@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+form.button_to {
+  display: inline;
+}
+
+.new-line {
+  display: block;
+}
