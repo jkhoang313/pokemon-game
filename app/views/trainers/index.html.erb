@@ -10,15 +10,6 @@
     <% @trainers.each do |trainer| %>
       <%= link_to trainer.name, trainer_path(trainer) %><br></br>
     <% end %>
-
     <br>
-    <!-- <%= form_tag "/trainers/new", method: :get do %>
-      <%= submit_tag "New Trainer"%>
-    <% end %> -->
-    <%= button_to "New Trainer", new_trainer_path, method: :get %>
-
-
-    <br>
-    <%= button_to "Back to Main Menu", "/", method: :get %>
   </body>
 </html>

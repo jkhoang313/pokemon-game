@@ -2,20 +2,46 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title><%= @pokemon.name %></title>
+    <title>Pokemon Page</title>
   </head>
   <body>
     <h1><%= @pokemon.name.capitalize %></h1>
-      <p><strong>Trainer(s):</strong></p>
-        <ul>
-        <% @pokemon.trainers.each do |trainer| %>
-          <li><%= link_to trainer.name.capitalize, trainer_path(trainer)%></li>
-        <% end %>
-        </ul>
+    <h3>Trainer: <%= @trainer.name  %></h3>
+    <h3>Stats:</h3>
+    <table>
+      <tbody>
+        <tr>
+          <td>Level:</td>
+          <td><%= @pokemon.level %></td>
+        </tr>
+        <tr>
+          <td>HP:</td>
+          <td><%= @pokemon.hp %></td>
+        </tr>
+        <tr>
+          <td>Attack:</td>
+          <td><%= @pokemon.attack %></td>
+        </tr>
+        <tr>
+          <td>Defense:</td>
+          <td><%= @pokemon.defense %></td>
+        </tr>
+        <tr>
+          <td>Special Attack:</td>
+          <td><%= @pokemon.special_attack %></td>
+        </tr>
+        <tr>
+          <td>Special Defense:</td>
+          <td><%= @pokemon.special_defense %></td>
+        </tr>
+        <tr>
+          <td>Speed:</td>
+          <td><%= @pokemon.speed %></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
 
-    <!-- <%= form_tag pokemons_path, method: :get do %>
-      <%= submit_tag "Back to All Pokemon"%>
-    <% end %> -->
-    <%= button_to "Back to All Pokemon", pokemons_path, method: :get %>
+    <%= button_to "Back To Trainer #{@trainer.name}'s Page", trainer_path(@trainer), method: :get %>
   </body>
 </html>

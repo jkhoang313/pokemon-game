@@ -9,29 +9,21 @@
     <p>Gender: <%= @trainer.gender %></p>
     <p>Age: <%= @trainer.age %></p>
 
-    <label for="pokemon">Pokemon:</label>
+    <%= link_to "Pokemon:", pokemons_path(@trainer) %>
     <ul>
-      <% @trainer.pokemons.each do |pokemon| %>
-        <li><%= link_to pokemon.name.capitalize, pokemon_path(pokemon)%></li>
+      <% @trainer.pokemons.each.with_index(1) do |pokemon, index| %>
+        <li><%= link_to pokemon.name.capitalize, pokemon_path(@trainer, index)%></li>
       <% end %>
     </ul>
 
-    <br>
-    <%= form_tag edit_trainer_path, method: :get do %>
-      <%= submit_tag "Edit Trainer"%>
+    <p>Current Poke-tokens: <%= @trainer.poke_tokens %></p>
+    <p> Next Poke-Token: <%= @trainer.token_status %> </p>
+
+    <% if session[:trainer_id] == @trainer.id %>
+      <%= button_to "Claim Poke-Token", reset_token_path(@trainer) if @trainer.token_time_passed? %>
+      <%= button_to "Edit Trainer", edit_trainer_path, method: :get %>
+      <%= button_to "Delete Trainer", @trainer, method: :delete %>
     <% end %>
-
-    <br>
-    <!-- <%= form_tag "/trainers/#{@trainer.id}", method: :delete do %>
-      <%= submit_tag "Delete Trainer"%>
-    <% end %> -->
-
-    <%= button_to "Delete Trainer", @trainer, method: :delete %>
-
-    <br>
-    <!-- <%= form_tag trainers_path, method: :get do %>
-      <%= submit_tag "Back to All Trainers"%>
-    <% end %> -->
 
     <%= button_to "Back to All Trainers", trainers_path, method: :get %>
   </body>

@@ -12,26 +12,44 @@
 
 ActiveRecord::Schema.define(version: 20161227184459) do
 
-  create_table "pokemons", force: :cascade do |t|
+  create_table "pokedexes", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "level",           default: 1
+    t.string   "hp"
+    t.string   "attack"
+    t.string   "defense"
+    t.string   "special_attack"
+    t.string   "special_defense"
+    t.string   "speed"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
-  create_table "trainer_pokemons", force: :cascade do |t|
+  create_table "pokemons", force: :cascade do |t|
     t.integer  "trainer_id"
-    t.integer  "pokemon_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "pokedex_id"
+    t.string   "name"
+    t.integer  "level",           default: 1
+    t.string   "hp"
+    t.string   "attack"
+    t.string   "defense"
+    t.string   "special_attack"
+    t.string   "special_defense"
+    t.string   "speed"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "trainers", force: :cascade do |t|
     t.string   "name"
+    t.string   "password_digest"
     t.string   "age"
     t.string   "gender"
     t.string   "starter_pokemon"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "poke_tokens",     default: 5
+    t.integer  "last_token"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end

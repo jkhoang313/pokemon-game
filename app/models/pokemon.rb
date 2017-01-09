@@ -1,4 +1,5 @@
 class Pokemon < ApplicationRecord
-  has_many :trainer_pokemons
-  has_many :trainers, through: :trainer_pokemons
+  belongs_to :trainer
+  belongs_to :pokedex
+  #add uniqueness to trainer name
 end

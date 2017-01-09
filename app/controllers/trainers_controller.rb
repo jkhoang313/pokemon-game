@@ -8,15 +8,28 @@ class TrainersController < ApplicationController
   end
 
   def create
-    @trainer = Trainer.create(post_params)
-    @trainer.pokemons << Pokemon.find_by(name: params[:trainer][:starter_pokemon])
-
-    redirect_to trainer_path(@trainer)
+    @trainer = Trainer.new(trainer_params)
+    if @trainer.authenticate(params[:trainer][:password_confirmation])
+      @trainer.last_token = Time.now.to_i
+      # move to model with create super
+      @trainer.save
+      @pokemon_base = Pokedex.find_by(name: params[:trainer][:starter_pokemon])
+      @trainer.pokemons << @pokemon_base.create_pokemon(@trainer)
+      session[:trainer_id] = @trainer.id
+      redirect_to trainer_path(@trainer)
+    else
+      redirect_to new_trainer_path
+      # flash notice
+    end
+    #get rid of starter_pokemon attribute
   end
 
   def destroy
+    # ask user for confirmation
     @trainer = Trainer.find(params[:id])
     @trainer.destroy
+    session.clear
+    # put in method in application?
 
     redirect_to trainers_path
   end
@@ -31,14 +44,21 @@ class TrainersController < ApplicationController
 
   def update
     @trainer = Trainer.find(params[:id])
-    @trainer.update(name: params[:trainer][:name], age: params[:trainer][:age], starter_pokemon: params[:trainer][:starter_pokemon])
+    @trainer.update(name: params[:trainer][:name], age: params[:trainer][:age])
+
+    redirect_to trainer_path(@trainer)
+  end
+
+  def reset_token
+    @trainer = Trainer.find(params[:id])
+    @trainer.add_token
 
     redirect_to trainer_path(@trainer)
   end
 
   private
 
-  def post_params
-    params.require(:trainer).permit(:name, :age, :gender, :starter_pokemon)
+  def trainer_params
+    params.require(:trainer).permit(:name, :password, :age, :gender, :starter_pokemon)
   end
 end

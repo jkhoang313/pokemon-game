@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Pokemon</title>
+  </head>
+  <body>
+    <h1>Pokédex</h1>
+
+    <% @pokedex.each.with_index(1) do |pokemon, index| %>
+      <% @count = Trainer.joins(:pokemons).where(pokemons: {name: "#{pokemon.name}"}).count %>
+      <p><%= "#{index}. #{pokemon.name.capitalize}: "%> <%= link_to "#{@count} trainer(s)", pokedex_path(pokemon) %></p>
+    <% end %>
+
+  </body>
+</html>

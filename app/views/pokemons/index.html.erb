@@ -2,16 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>All Pokemon</title>
+    <title>Pokemons Page</title>
   </head>
   <body>
-    <h1>All Pokemon</h1>
-    <%= button_to "Back to Main Menu", "/", method: :get %>
-
-    <% @pokemons.each.with_index(1) do |pokemon, index| %>
-      <% @count = Trainer.joins(:pokemons).where(pokemons: {name: "#{pokemon.name}"}).count %>
-      <p><%= "#{index}. #{pokemon.name.capitalize}: "%> <%= link_to "#{@count} trainer(s)", pokemon_path(pokemon) %></p>
+    <% @pokemons.each do |pokemon| %>
+      <h1><%= pokemon.name %></h1>
     <% end %>
-
   </body>
 </html>

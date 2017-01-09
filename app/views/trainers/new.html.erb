@@ -11,8 +11,16 @@
       <%= f.text_field :name %>
       <br></br>
 
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <br></br>
+
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+      <br></br>
+
       <%= f.label :age %>
-      <%= f.text_field :age %>
+      <%= f.number_field :age %>
       <br></br>
 
       <%= f.label :starter_pokemon %>:
@@ -26,14 +34,10 @@
       <%= f.radio_button :gender, "Female" %><%= f.label :female %>
       <br><br>
 
-
       <%= f.submit %>
     <% end %>
-
     <br>
-    <!-- <%= form_tag "/", method: :get do %>
-      <%= submit_tag "Back to Main Menu"%>
-    <% end %> -->
-    <%= button_to "Back to Main Menu", "/", method: :get %>
+
+    <%= button_to "Cancel", trainers_path, method: :get %>
   </body>
 </html>
