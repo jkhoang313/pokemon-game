@@ -10,14 +10,12 @@ class TrainersController < ApplicationController
   def create
     @trainer = Trainer.new(trainer_params)
     if @trainer.authenticate(params[:trainer][:password_confirmation])
-      @trainer.last_token = Time.now.to_i
-      # move to model with create super
       @trainer.save
       @pokemon_base = Pokedex.find_by(name: params[:trainer][:starter_pokemon])
       @trainer.pokemons << @pokemon_base.create_pokemon(@trainer)
 
       session[:trainer_id] = @trainer.id
-      
+
       redirect_to trainer_path(@trainer)
     else
       flash[:message] = "Password confirmation must match password"
@@ -56,7 +54,7 @@ class TrainersController < ApplicationController
     @trainer = Trainer.find(params[:id])
     @trainer.add_token
 
-    redirect_to trainer_path(@trainer)
+    render :'trainers/show'
   end
 
   private

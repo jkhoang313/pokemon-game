@@ -1,7 +1,7 @@
 class Trainer < ApplicationRecord
   has_secure_password
   has_many :pokemons
-  before_save :capitalize_name
+  before_save :capitalize_name, :set_token
   #add uniqueness to trainer name
 
   def capitalize_name
@@ -61,5 +61,8 @@ class Trainer < ApplicationRecord
     self.pokemons[6..-1]
   end
 
+  def set_token
+    self.last_token = Time.now.to_i
+  end
   #make method for moving starters and storage pokemon
 end
