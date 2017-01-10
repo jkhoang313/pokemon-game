@@ -20,7 +20,7 @@
     <p>Current Poke-tokens: <%= @trainer.poke_tokens %></p>
     <p> Next Poke-Token: <%= @trainer.token_status %> </p>
 
-    <% if session[:trainer_id] == @trainer.id %>
+    <% if current_trainer == @trainer %>
       <%= button_to "Claim Poke-Token", reset_token_path(@trainer), class: 'new-line' if @trainer.token_time_passed? %>
       <%= button_to "Edit Trainer", edit_trainer_path, method: :get %>
       <%= button_to "Delete Trainer", @trainer, method: :delete %>

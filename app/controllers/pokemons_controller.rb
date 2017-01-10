@@ -1,6 +1,6 @@
 class PokemonsController < ApplicationController
   def index
-    @trainer = Trainer.find(params[:id])
+    find_trainer
     @pokemons = @trainer.pokemons
     # before action for these 2 settings?
     # add release pokemon option
@@ -8,15 +8,22 @@ class PokemonsController < ApplicationController
 
   def show
     #if else statement for incorrect routes
-    @trainer = Trainer.find(params[:id])
+    find_trainer
     @pokemon = @trainer.pokemons[params[:pokemon_id].to_i-1]
   end
 
   def destroy
-    @trainer = Trainer.find(params[:id])
+    find_trainer
     @pokemon = @trainer.pokemons[params[:pokemon_id].to_i-1]
     @pokemon.destroy
+    #you could hack around this by changing the html
 
     redirect_to pokemons_path(@trainer)
+  end
+
+  private
+
+  def find_trainer
+    @trainer = Trainer.find(params[:id])
   end
 end
