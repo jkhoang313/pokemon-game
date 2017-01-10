@@ -7,23 +7,23 @@
   <body>
     <h1>Create A Trainer</h1>
     <%= form_for @trainer do |f| %>
-      <%= f.label :name %>
+      <%= f.label "Name:" %>
       <%= f.text_field :name %>
       <br></br>
 
-      <%= f.label :password %>
+      <%= f.label "Password:" %>
       <%= f.password_field :password %>
       <br></br>
 
-      <%= f.label :password_confirmation %>
+      <%= f.label "Confirm Password:" %>
       <%= f.password_field :password_confirmation %>
       <br></br>
 
-      <%= f.label :age %>
-      <%= f.number_field :age %>
+      <%= f.label "Age:" %>
+      <%= f.number_field :age, min: 1 %>
       <br></br>
 
-      <%= f.label :starter_pokemon %>:
+      <%= f.label "Starter Pokemon:" %>
       <%= f.radio_button :starter_pokemon, "bulbasaur" %><%= f.label :bulbasaur %>
       <%= f.radio_button :starter_pokemon, "charmander" %><%= f.label :charmander %>
       <%= f.radio_button :starter_pokemon, "squirtle" %><%= f.label :squirtle %>

@@ -18,8 +18,9 @@ class TrainersController < ApplicationController
       session[:trainer_id] = @trainer.id
       redirect_to trainer_path(@trainer)
     else
+      flash[:message] = "Password confirmation must match password"
       redirect_to new_trainer_path
-      # flash notice
+      # add validations and flash message
     end
     #get rid of starter_pokemon attribute
   end

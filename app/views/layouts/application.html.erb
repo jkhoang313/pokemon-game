@@ -16,6 +16,7 @@
       <%= button_to "Pokedex", pokedex_index_path, method: :get %>
       <% if session[:trainer_id] %>
         <p>Signed in as Trainer <%= current_trainer.name %></p>
+        <%= button_to "User Page", trainer_path(current_trainer), method: :get %>
         <%= button_to "Logout", logout_path, method: :delete %>
       <% else  %>
         <p>Not signed in</p>
@@ -26,6 +27,7 @@
 
     <div class="container">
       <%= yield %>
+      <p class="flash"><%= flash[:message] if flash[:message] %></p>
     </div>
   </body>
 </html>
