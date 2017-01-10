@@ -1,7 +1,4 @@
 class SessionsController < ApplicationController
-  def new
-  end
-
   def create
     @trainer = Trainer.find_by(name: capitalize_name(params[:trainer][:name]))
     if @trainer && @trainer.authenticate(params[:trainer][:password])
