@@ -8,12 +8,11 @@ Rails.application.routes.draw do
   get '/about', to: 'game#about', as: "about"
 
   post '/trainers/:id', to: 'trainers#reset_token', as: "reset_token"
-
   get '/trainers/:id/pokemons/:pokemon_id', to: 'pokemons#show', as: "pokemon"
-  get '/trainers/:id/pokemons/', to: 'pokemons#index', as: "pokemons"
+  get '/trainers/:id/pokemons', to: 'pokemons#index', as: "pokemons"
+  delete '/trainers/:id/pokemons/delete', to: 'pokemons#destroy', as: "delete_pokemon"
 
   get '/login', to: 'sessions#new', as: "login"
   post '/login', to: 'sessions#create', as: "new_session"
-
   delete '/logout', to: 'sessions#destroy', as: "logout"
 end

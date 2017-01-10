@@ -42,6 +42,7 @@
     </table>
     <br>
 
+    <%= button_to "Delete Pokemon", delete_pokemon_path(@trainer, @pokemon), method: :delete, class: 'new-line' if session[:trainer_id] == @trainer.id %>
     <%= button_to "Back To Trainer #{@trainer.name}'s Page", trainer_path(@trainer), method: :get %>
   </body>
 </html>
