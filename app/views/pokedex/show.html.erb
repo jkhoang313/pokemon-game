@@ -5,11 +5,11 @@
     <title><%= @pokemon.name %></title>
   </head>
   <body>
-    <h1><%= @pokemon.name.capitalize %></h1>
+    <h1><%= @pokemon.name %></h1>
       <p><strong>Trainer(s):</strong></p>
         <ul>
         <% @pokemon.trainers.each do |trainer| %>
-          <li><%= link_to trainer.name.capitalize, trainer_path(trainer)%></li>
+          <li><%= link_to trainer.name, trainer_path(trainer)%></li>
         <% end %>
         </ul>
     <%= button_to "Back to All Pokemon", pokedex_index_path, method: :get %>

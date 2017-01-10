@@ -12,7 +12,7 @@ id = 1
 while id <= 151
   @pokedex = JSON.parse(RestClient.get("https://pokeapi.co/api/v2/pokemon/#{id}/"))
 
-  pokedex_params = {"name"=> @pokedex["name"]}
+  pokedex_params = {"name"=> @pokedex["name"].capitalize}
   @pokedex["stats"].each do |stat_hash|
     stat_name = stat_hash["stat"]["name"].gsub("-", "_")
     stat_value = stat_hash["base_stat"]
