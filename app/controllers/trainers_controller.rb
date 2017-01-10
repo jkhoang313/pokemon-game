@@ -15,7 +15,9 @@ class TrainersController < ApplicationController
       @trainer.save
       @pokemon_base = Pokedex.find_by(name: params[:trainer][:starter_pokemon])
       @trainer.pokemons << @pokemon_base.create_pokemon(@trainer)
+
       session[:trainer_id] = @trainer.id
+      
       redirect_to trainer_path(@trainer)
     else
       flash[:message] = "Password confirmation must match password"

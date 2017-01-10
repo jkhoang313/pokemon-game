@@ -9,10 +9,11 @@ class Trainer < ApplicationRecord
   end
 
   def self.random_starter
-    common = ["caterpie", "weedle","pidgey", "rattata", "spearow", "zubat", "tentacool", "geodude", "magikarp"]
-    rare = ["ekans", "sandshrew", "nidoran-f", "nidoran-m", "oddish", "paras", "venonat", "diglett", "meowth", "mankey", "abra", "machop", "bellsprout", "magnemite", "doduo", "grimer", "shellder", "voltorb", "koffing", "tangela", "horsea", "goldeen", "staryu"]
-    super_rare = ["pikachu", "clefairy", "vulpix", "jigglypuff", "psyduck", "growlithe", "poliwag", "ponyta", "slowpoke", "farfetchd", "seel", "gastly", "onix", "drowsee", "krabby", "exeggcute", "cubone", "rhyhorn", "chansey", "tauros", "ditto", "eevee"]
-    ultra_rare = ["pinsir", "lickitung", "hitmonlee", "hitmonchan", "kangaskhan", "lapras", "mr-mime", "scyther", "jinx", "electabuzz", "magmar", "porygon", "omanyte", "kabuto", "aerodactyl", "snorlax", "dratini"]
+    common = ["Caterpie", "Weedle", "Pidgey", "Rattata", "Spearow", "Zubat", "Tentacool", "Geodude", "Magikarp"]
+    rare = ["Ekans", "Sandshrew", "Nidoran-f", "Nidoran-m", "Oddish", "Paras", "Venonat", "Diglett", "Meowth", "Mankey", "Abra", "Machop", "Bellsprout", "Magnemite", "Doduo", "Grimer", "Shellder", "Voltorb", "Koffing", "Tangela", "Horsea", "Goldeen", "Staryu"]
+    super_rare = ["Pikachu", "Clefairy", "Vulpix", "Jigglypuff", "Psyduck", "Growlithe", "Poliwag", "Ponyta", "Slowpoke", "Farfetchd", "Seel", "Gastly", "Onix", "Drowsee", "Krabby", "Exeggcute", "Cubone", "Rhyhorn", "Chansey", "Tauros", "Ditto", "Eevee"]
+    ultra_rare = ["Pinsir", "Lickitung", "Hitmonlee", "Hitmonchan", "Kangaskhan", "Lapras", "Mr-mime", "Scyther", "Jinx", "Electabuzz", "Magmar", "Porygon", "Omanyte", "Kabuto", "Qerodactyl", "Snorlax", "Dratini"]
+    #make better percentages
 
     random_number = rand(1..100)
 
